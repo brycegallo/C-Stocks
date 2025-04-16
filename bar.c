@@ -5,15 +5,15 @@
 // Define Ticker struct
 typedef struct {
     char* symbol;
-    size_t size_t length;
+    size_t length;
     float price;
 } Ticker;
 
 // Function to initialize an instance of struct Ticker
 Ticker* new_ticker(char* symbol, float price) {
-    Ticker* ticker = (Ticker*)malloc(sizeof);
+    Ticker* ticker = (Ticker*)malloc(sizeof(Ticker));
     ticker->symbol = symbol;
-    ticker->length = strlen(name);
+    ticker->length = strlen(symbol);
     ticker->price = price;
     return ticker;
 }
@@ -49,5 +49,21 @@ void free_tickers(int size, Ticker* ticker_array[]) {
 }
 
 int main(void) {
+    Ticker* aapl = new_ticker("AAPL", 101.15);
+    Ticker* bull = new_ticker("BULL", 42.45);
+    Ticker* citi = new_ticker("C", 64.33);
+    Ticker* cqqq = new_ticker("CQQQ", 40.67);
+    Ticker* fxic = new_ticker("FXI", 33.18);
+    Ticker* hood = new_ticker("HOOD", 44.08);
+    Ticker* jepq = new_ticker("JEPQ", 50.02);
+    Ticker* mrgy = new_ticker("MURGY", 13.31);
+    Ticker* schd = new_ticker("SCHD", 25.43);
+    Ticker* schg = new_ticker("SCHG", 24.52);
+    
+    Ticker* myTickers[] = { aapl, bull, citi, cqqq, fxic, hood, jepq, mrgy, schd, schg };
+
+    print_tickers(10, myTickers);
+    free_tickers(10, myTickers);
+
     return 0;
 }
